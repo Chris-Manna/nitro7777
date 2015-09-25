@@ -4,19 +4,16 @@
 # Difficulty: easy.
 
 def reverse(string)
-  string = string.to_s.chomp
-  
   idx = string.length-1
-  rev = []
+  str = ""
 
   while idx >= 0
-    rev.push(string[idx])
-    idx=idx-1
+    str = string[idx] + str
+    idx = idx-1
   end
   
   # put into string format and take out of array format
-  return new_word=rev.join
-#  return string.reverse
+  return str
 end
 
 puts("reverse(\"abc\") == \"cba\": #{reverse("abc") == "cba"}")
