@@ -1,78 +1,77 @@
 # I	 V	X	  L	  C	  D  	M
 # 1	 5	10	50	100	500	1000
 
-puts("Please input a number to receive a Roman Numeral back:")
-#  num = gets.to_i
+def to_roman_numeral(num = 4999)
+	temp = num
+	str = []
 
-num = 4999
-temp = num
-str = []
+	if num >= 5000
+  	puts("Please insert number less than 5000")
+  	exit(0)
+	end
 
-if num > 4999
-  puts("Please insert number less than 5000")
-end
+	temp = num / 1000
+	while temp > 0
+  	str = str.push("M")
+  	temp -= 1
+	end
+	num = num % 1000
 
-temp = num / 1000
-while temp > 0
-  str = str.push("M")
-  temp -= 1
-end
-num = num % 1000
+	temp = num / 100
+	if temp == 9
+  	str = str.push("CM")
+	  temp -= 9
+	end
+	if temp == 4
+  	str = str.push("CD")
+	  temp -= 4
+	end
+	if temp > 5
+  	str = str.push("D")
+	  temp -=5
+	end
+	while (temp < 4) && (temp > 0)
+  	str = str.push("C")
+	  temp -= 1
+	end
+	num = num % 100
 
-temp = num / 100
-if temp == 9
-  str = str.push("CM")
-  temp -= 9
-end
-if temp == 4
-  str = str.push("CD")
-  temp -= 4
-end
-if temp > 5
-  str = str.push("D")
-  temp -=5
-end
-while (temp < 4) && (temp > 0)
-  str = str.push("C")
-  temp -= 1
-end
-num = num % 100
+	temp = num / 10
+	if temp == 9
+  	str = str.push("XC")
+	  temp -= 9
+	end
+	if temp == 4
+  	str = str.push("XL")
+	  temp -= 4
+	end
+	if temp > 5
+  	str = str.push("L")
+	  temp -=5
+	end
+	while (temp < 4) && (temp > 0)
+  	str = str.push("X")
+	  temp -= 1
+	end
+	num = num % 10
 
-temp = num / 10
-if temp == 9
-  str = str.push("XC")
-  temp -= 9
-end
-if temp == 4
-  str = str.push("XL")
-  temp -= 4
-end
-if temp > 5
-  str = str.push("L")
-  temp -=5
-end
-while (temp < 4) && (temp > 0)
-  str = str.push("X")
-  temp -= 1
-end
-num = num % 10
+	temp = num
+	if temp == 9
+  	str = str.push("IX")
+	  temp -= 9
+	end
+	if temp == 4
+  	str = str.push("IV")
+	  temp -= 4
+	end
+	if temp > 5
+  	str = str.push("V")
+	  temp -=5
+	end
+	while (temp < 4) && (temp > 0)
+  	str = str.push("I")
+	  temp -= 1
+	end
 
-temp = num
-if temp == 9
-  str = str.push("IX")
-  temp -= 9
+	$stdout.puts str.join
 end
-if temp == 4
-  str = str.push("IV")
-  temp -= 4
-end
-if temp > 5
-  str = str.push("V")
-  temp -=5
-end
-while (temp < 4) && (temp > 0)
-  str = str.push("I")
-  temp -= 1
-end
-
-puts(str.join)
