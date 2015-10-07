@@ -75,3 +75,31 @@ def to_roman_numeral(num = 4999)
 
 	$stdout.puts str.join
 end
+
+
+=begin
+def solution(decimal)
+  data = {
+    'M'   => 1000,
+    'CM'  => 900,
+    'D'   => 500,
+    'C'   => 100,
+    'XC'  => 90,
+    'L'   => 50,
+    'X'   => 10,
+    'IX'  => 9,
+    'V'   => 5,
+    'IV'   => 4,
+    'I'   => 1
+  }
+
+  data.inject('') do |roman, (letter, value)|
+    while value <= decimal
+      decimal -= value
+      roman += letter
+    end
+
+    roman
+  end
+end
+=end
